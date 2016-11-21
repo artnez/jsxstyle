@@ -47,7 +47,7 @@ function reap() {
   for (var key in styles) {
     if (styles[key].refs === 0) {
       if (styles[key].domNode) {
-        styles[key].domNode.remove();
+        remove(styles[key].domNode);
       }
       delete styles[key];
     }
@@ -57,11 +57,17 @@ function reap() {
 function reset() {
   for (var key in styles) {
     if (styles[key].domNode) {
-      styles[key].domNode.remove();
+      remove(styles[key].domNode);
     }
     delete styles[key];
   }
   stylesheetIdSeed = 0;
+}
+
+function remove(node) {
+  if (node && node.parentNode) {
+    node.parentNode.removeChild(node);
+  }
 }
 
 var GlobalStylesheets = {
