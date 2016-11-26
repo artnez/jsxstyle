@@ -47,7 +47,7 @@ function reap() {
   for (var key in styles) {
     if (styles[key].refs === 0) {
       if (styles[key].domNode) {
-        remove(styles[key].domNode);
+        removeNode(styles[key].domNode);
       }
       delete styles[key];
     }
@@ -64,7 +64,7 @@ function reset() {
   stylesheetIdSeed = 0;
 }
 
-function remove(node) {
+function removeNode(node) {
   if (node && node.parentNode) {
     node.parentNode.removeChild(node);
   }
