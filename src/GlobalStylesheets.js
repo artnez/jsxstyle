@@ -85,7 +85,7 @@ var GlobalStylesheets = {
     Object.keys(styleObj).sort().forEach(function(key) {
       var value = styleObj[key];
 
-      if (!value) {
+      if (!value && value !== 0) {
         return;
       }
 
